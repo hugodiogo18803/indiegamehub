@@ -1,69 +1,43 @@
-# React + TypeScript + Vite
+# 🎮 IndieGameHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketplace _front-end_ para descobrir, avaliar e guardar jogos _indie_.  
+Desenvolvido no âmbito da UC **Tecnologias para a Web e Dispositivos Móveis**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Funcionalidades
 
-## Expanding the ESLint configuration
+| Área                | Descrição                                                              |
+| ------------------- | ---------------------------------------------------------------------- |
+| **Discover**        | Pesquisa por nome + filtro por género (RAWG API) com _infinite scroll_ |
+| **Wishlist**        | Adicionar/remover jogos (persistente por utilizador)                   |
+| **Detalhe do Jogo** | Capa, descrição, screenshots, “jogos semelhantes”, botão Wishlist      |
+| **Reviews**         | Modal com rating ⭐ + comentário, listagem pública                     |
+| **Autenticação**    | _Signup/Login_ (JSON Server) → sessão guardada em `localStorage`       |
+| **Tema Light/Dark** | Alternância instantânea e persistente                                  |
+| **Acessibilidade**  | Navegação por teclado, foco visível, contraste AA                      |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🖥️ Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+| Camada         | Tecnologia                               |
+| -------------- | ---------------------------------------- |
+| **Front-end**  | React + Vite + TypeScript                |
+| UI             | Tailwind CSS 3 (class) + React-Hot-Toast |
+| Estado global  | Zustand                                  |
+| **Back-end**   | JSON Server (REST – free tier Render)    |
+| 3rd-party Data | RAWG Video Games API                     |
+| Testes         | Vitest + React Testing Library • Cypress |
+| Code Quality   | ESLint Flat Config + jsx-a11y            |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Começar localmente
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/hugodiogo18803/indiegamehub.git
+cd indiegamehub
+cp .env.local.example .env.local
+npm install
 ```

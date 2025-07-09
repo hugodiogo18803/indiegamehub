@@ -82,7 +82,12 @@ export default function Discover() {
           <button
             disabled={loading}
             onClick={() => load(false)}
-            className="mt-4 px-4 py-2 border rounded disabled:opacity-40"
+            className="mt-4 px-4 py-2 border
+                       border-gray-300  dark:border-gray-600
+                       text-gray-800     dark:text-gray-100
+                       rounded disabled:opacity-40
+                       hover:bg-gray-100 dark:hover:bg-gray-700
+                       transition"
           >
             {loading ? "A carregar…" : "Carregar mais"}
           </button>
