@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import backend from '../lib/backend'
 
-/* ─── Tipos ────────────────────────── */
+/* Tipos */
 export interface Game {
   id?: number          // id interno JSON Server (undefined até POST devolver)
   rawgId: number       // id do RAWG
@@ -21,7 +21,7 @@ export interface Review {
   date: string
 }
 
-/* ─── Estado global ───────────────── */
+/* Estado global */
 interface AppState {
   /* Sessão */
   userId: number | null
@@ -59,7 +59,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   wishlist: [],
   reviews: [],
 
-  /* ---------- AUTH ---------- */
+  /* AUTH */
   login: async (email, password) => {
     const { data } = await backend.get('/users', { params: { email, password } })
     if (!data.length) return false
@@ -84,7 +84,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     return true
   },
 
-  /* ---------- WISHLIST ---------- */
+  /* WISHLIST */
   fetchWishlist: async () => {
     const id = get().userId
     if (!id) return
@@ -107,7 +107,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     set((s) => ({ wishlist: s.wishlist.filter((w) => w.rawgId !== rawgId) }))
   },
 
-  /* ---------- REVIEWS ---------- */
+  /* REVIEWS */
   fetchReviews: async (gameId) => {
     const { data } = await backend.get('/reviews', { params: { gameId } })
     set((s) => ({

@@ -12,7 +12,6 @@ export default [
     files: ['**/*.{ts,tsx}'],
 
     plugins: {
-      // ordem não importa
       '@typescript-eslint': tsPlugin,
       react: eslintPluginReact,
       'react-hooks': eslintPluginReactHooks,

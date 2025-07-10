@@ -4,7 +4,6 @@ import { useAppStore } from "../store/useAppStore";
 import { type GameDto } from "../lib/api";
 import { type Game } from "../store/useAppStore";
 
-/* União dos dois possíveis formatos */
 type CardGame = GameDto | Game;
 
 interface Props {
@@ -14,7 +13,6 @@ interface Props {
 export default function GameCard({ game }: Props) {
   const { wishlist, addToWishlist, removeFromWishlist } = useAppStore();
 
-  /* Normaliza id RAWG: rawgId se existir, senão id */
   const rawgId = (game as Game).rawgId ?? (game as GameDto).id;
 
   const inWish = wishlist.some((g) => g.rawgId === rawgId);
@@ -24,7 +22,6 @@ export default function GameCard({ game }: Props) {
       removeFromWishlist(rawgId);
       toast("Removido da wishlist", { icon: "🗑️" });
     } else {
-      /* Converte para Game (sem id DB ainda) */
       const newItem: Omit<Game, "id"> = {
         rawgId,
         slug: game.slug,

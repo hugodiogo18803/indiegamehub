@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default function ReviewModal({ gameId, onClose }: Props) {
-  /* ── obter cada campo individualmente ── */
+  /* obter cada campo individualmente */
   const userId = useAppStore((s) => s.userId);
   const userEmail = useAppStore((s) => s.userEmail);
   const addReview = useAppStore((s) => s.addReview);

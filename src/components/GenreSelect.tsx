@@ -1,4 +1,3 @@
-/* src/components/GenreSelect.tsx */
 import { useEffect, useState } from "react";
 import { getGenres, type GenreDto } from "../lib/api";
 

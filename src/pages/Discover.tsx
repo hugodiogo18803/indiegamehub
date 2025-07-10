@@ -5,7 +5,7 @@ import { type GameDto, searchGames } from "../lib/api";
 import { toast } from "react-hot-toast";
 
 export default function Discover() {
-  const [query, setQuery] = useState(""); // ← vazio
+  const [query, setQuery] = useState("");
   const [genre, setGenre] = useState("");
   const [page, setPage] = useState(1);
   const [games, setGames] = useState<GameDto[]>([]);

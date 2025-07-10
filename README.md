@@ -1,6 +1,6 @@
 # 🎮 IndieGameHub
 
-Marketplace _front-end_ para descobrir, avaliar e guardar jogos _indie_.  
+Marketplace _front-end_ para descobrir, avaliar e guardar jogos.  
 Desenvolvido no âmbito da UC **Tecnologias para a Web e Dispositivos Móveis**.
 
 ---
@@ -29,7 +29,7 @@ Desenvolvido no âmbito da UC **Tecnologias para a Web e Dispositivos Móveis**.
 | **Back-end**   | JSON Server (REST – free tier Render)    |
 | 3rd-party Data | RAWG Video Games API                     |
 | Testes         | Vitest + React Testing Library • Cypress |
-| Code Quality   | ESLint Flat Config + jsx-a11y            |
+| Code Quality   | ESLint Flat Config                       |
 
 ---
 

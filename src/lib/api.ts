@@ -18,13 +18,13 @@ export interface GameDto {
 
 export interface GenreDto { id: number; slug: string; name: string }
 
-/* ---------- NOVO: géneros ---------- */
+/* géneros */
 export async function getGenres(): Promise<GenreDto[]> {
   const { data } = await api.get('/genres')
   return data.results
 }
 
-/* ---------- searchGames — mais resultados + género opcional ---------- */
+/* searchGames */
 export async function searchGames(
   query = '',
   genre = '',
@@ -42,16 +42,13 @@ export async function searchGames(
   return data.results
 }
 
-/* restantes funções mantêm-se (getGame, getScreenshots, getSuggested) */
-
-
-/** Detalhes completos de um jogo pelo slug */
+/*Detalhes completos de um jogo*/
 export async function getGame(slug: string): Promise<GameDto> {
   const { data } = await api.get(`/games/${slug}`)
   return data
 }
 
-/** Array de screenshots (apenas campo image) */
+/* Array de screenshots */
 export async function getScreenshots(
   slug: string,
 ): Promise<{ image: string }[]> {
@@ -59,7 +56,7 @@ export async function getScreenshots(
   return data.results as { image: string }[]
 }
 
-/** Jogos sugeridos (semelhantes) */
+/* Jogos sugeridos */
 export async function getSuggested(
   slug: string,
   pageSize = 8,
