@@ -9,26 +9,21 @@ interface Props {
 }
 
 export default function ReviewModal({ gameId, onClose }: Props) {
-  /* ---- estado global ---- */
-  const { userId, userEmail, addReview } = useAppStore((s) => ({
-    userId: s.userId,
-    userEmail: s.userEmail,
-    addReview: s.addReview,
-  }));
+  /* ── obter cada campo individualmente ── */
+  const userId = useAppStore((s) => s.userId);
+  const userEmail = useAppStore((s) => s.userEmail);
+  const addReview = useAppStore((s) => s.addReview);
 
-  /* ---- estado local ---- */
   const [stars, setStars] = useState(0);
   const [text, setText] = useState("");
 
-  /* ---- submit ---- */
   const handleSubmit = () => {
-    if (!userId) return toast.error("Sessão expirada");
+    if (!userId) return toast.error("Sessão expirada. Faz login novamente.");
     addReview({ gameId, userId, userEmail: userEmail!, rating: stars, text });
     toast.success("Review publicada");
     onClose();
   };
 
-  /* ---- UI ---- */
   return createPortal(
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
       <div className="bg-white dark:bg-gray-800 dark:text-gray-200 rounded-2xl p-6 w-96 shadow-lg space-y-4">
